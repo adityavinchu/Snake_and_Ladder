@@ -10,6 +10,11 @@ namespace SnakeAndLadder
     public class SnakeLadder
     {
         int player_position = 0;
-
+        Random random = new Random();
+        public int DiceRoll()
+        {
+            int dice = random.Next(1, 7);
+            return dice;
+        }
     }
 }
