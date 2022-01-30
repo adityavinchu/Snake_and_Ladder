@@ -10,5 +10,6 @@ namespace SnakeAndLadder
     public class SnakeLadder
     {
         int player_position = 0;
+
     }
 }
