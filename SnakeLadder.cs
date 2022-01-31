@@ -9,11 +9,12 @@ namespace SnakeAndLadder
 {
     public class SnakeLadder
     {
-        int player_position = 0;
+        int player_position = 0,count=0;
         Random random = new Random();
         public int DiceRoll()
         {
             int dice = random.Next(1, 7);
+            count++;
             return dice;
         }
         public void Play()
@@ -21,7 +22,7 @@ namespace SnakeAndLadder
             const int LADDER = 1, SNAKE = 2;
             while (player_position < 100)
             {
-                int choice = random.Next(0, 3);
+                int choice = random.Next(1, 3);
                 int diceoutcome = DiceRoll();
                 
                 switch (choice)
@@ -47,9 +48,9 @@ namespace SnakeAndLadder
                     default:
                         break;
                 }
-
+                Console.WriteLine("The current player position: {0}",player_position);
             }
-        
+            Console.WriteLine("The total no of times the game Played {0}",count);    
         }
     }
 }
