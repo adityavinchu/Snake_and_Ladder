@@ -29,6 +29,7 @@ namespace SnakeAndLadder
                 case SNAKE:
                     player_position -=diceoutcome;
                     break ;
+
                 default:
                     break;
             }
