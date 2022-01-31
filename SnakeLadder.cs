@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace SnakeAndLadder
+namespace Snake_And_Ladder_Problem
 {
-    public class SnakeLadder
+    public class Snake_And_Ladder_Game
     {
         int player_position = 0,count=0;
         Random random = new Random();
@@ -17,40 +17,33 @@ namespace SnakeAndLadder
             count++;
             return dice;
         }
-        public void Play()
+        public int Play()
         {
             const int LADDER = 1, SNAKE = 2;
-            while (player_position < 100)
-            {
                 int choice = random.Next(1, 3);
                 int diceoutcome = DiceRoll();
-                
                 switch (choice)
                 {
                     case LADDER:
-                        if(player_position + diceoutcome<=100)
-                        {
-                            player_position += diceoutcome;
-                        }
+                    if (player_position + diceoutcome <= 100)
+                    {
+                        player_position += diceoutcome;
+                        Play();
+                    }
                         break;
-
                     case SNAKE:
-                        if(player_position - diceoutcome>0)
-                        {
-                            player_position -= diceoutcome;
-                        }
+                        if(player_position - diceoutcome > 0)
+                        player_position -= diceoutcome;
                         else
                         {
                             player_position = 0;
                         }
                         break;
-
                     default:
                         break;
                 }
-                Console.WriteLine("The current player position: {0}",player_position);
+            return player_position;
             }
-            Console.WriteLine("The total no of times the game Played {0}",count);    
-        }
+
     }
 }
