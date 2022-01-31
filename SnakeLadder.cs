@@ -21,18 +21,23 @@ namespace SnakeAndLadder
             const int LADDER = 1, SNAKE = 2;
             while (player_position < 100)
             {
-                int choice = random.Next(1, 3);
+                int choice = random.Next(0, 3);
                 int diceoutcome = DiceRoll();
                 
                 switch (choice)
                 {
                     case LADDER:
-                        player_position += diceoutcome;
+                        if(player_position + diceoutcome<=100)
+                        {
+                            player_position += diceoutcome;
+                        }
                         break;
 
                     case SNAKE:
-                        if(player_position-diceoutcome>0)
-                            {player_position -= diceoutcome;}
+                        if(player_position - diceoutcome>0)
+                        {
+                            player_position -= diceoutcome;
+                        }
                         else
                         {
                             player_position = 0;
