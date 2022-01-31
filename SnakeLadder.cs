@@ -18,8 +18,6 @@ namespace SnakeAndLadder
         }
         public void Play()
         {
-
-
             const int LADDER = 1, SNAKE = 2;
             while (player_position < 100)
             {
